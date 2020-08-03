@@ -31,11 +31,20 @@ public class MommifierTest {
     }
 
     @Test
-    void should_insert_mommy_when_given_strings_with_repeat_vowels() {
-        String stringOfRepeatVowels = "aabcdee";
+    void should_insert_mommy_when_given_strings_with_repeat_vowels_less_than_30_percent() {
+        String stringOfRepeatVowels = "aabcdfhtysb";
         Mommifier mommifier = new Mommifier();
         String result = mommifier.convertString(stringOfRepeatVowels);
-        String expected = "amommyabcdemommye";
+        String expected = "aabcdfhtysb";
+        assertEquals(result, expected);
+    }
+
+    @Test
+    void should_insert_mommy_when_given_strings_with_repeat_vowels_more_than_30_percent() {
+        String stringOfRepeatVowels = "aaabcdee";
+        Mommifier mommifier = new Mommifier();
+        String result = mommifier.convertString(stringOfRepeatVowels);
+        String expected = "amommyamommyabcdemommye";
         assertEquals(result, expected);
     }
 }

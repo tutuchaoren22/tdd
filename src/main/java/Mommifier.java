@@ -13,7 +13,7 @@ public class Mommifier {
 
     public String convertString(String s) {
         if (s != null) {
-            if (hasRepeatVowels(s)) {
+            if (hasRepeatVowels(s) && hasLengthMoreThan30Percent(s)) {
                 return insertMommy(s);
             } else {
                 return s;
@@ -26,6 +26,15 @@ public class Mommifier {
     public boolean hasRepeatVowels(String s) {
         boolean result = false;
         if (s.contains(doubleA) || s.contains(doubleE) || s.contains(doubleI) || s.contains(doubleO) || s.contains(doubleU)) {
+            result = true;
+        }
+        return result;
+    }
+
+    public boolean hasLengthMoreThan30Percent(String s) {
+        boolean result = false;
+        int sumOfRepeatVowels = calulateLengthOfRepeat(s, doubleA) + calulateLengthOfRepeat(s, doubleE) + calulateLengthOfRepeat(s, doubleI) + calulateLengthOfRepeat(s, doubleO) + calulateLengthOfRepeat(s, doubleU);
+        if (sumOfRepeatVowels >= (s.length() * 0.3)) {
             result = true;
         }
         return result;
@@ -44,4 +53,17 @@ public class Mommifier {
         }
         return result;
     }
+
+    public int calulateLengthOfRepeat(String str1, String str2) {
+        int counter = 1;
+        if (!str1.contains(str2)) {
+            return 0;
+        }
+        while (str1.contains(str2)) {
+            counter++;
+            str1 = str1.substring(str1.indexOf(str2) + str2.length() - 1);
+        }
+        return counter;
+    }
+
 }
