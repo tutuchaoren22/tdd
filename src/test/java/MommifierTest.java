@@ -31,7 +31,7 @@ public class MommifierTest {
     }
 
     @Test
-    void should_insert_mommy_when_given_strings_with_repeat_vowels_less_than_30_percent() {
+    void should_return_itself_when_given_strings_with_repeat_vowels_less_than_30_percent() {
         String stringOfRepeatVowels = "aabcdfhtysb";
         Mommifier mommifier = new Mommifier();
         String result = mommifier.convertString(stringOfRepeatVowels);
