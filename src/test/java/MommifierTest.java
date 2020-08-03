@@ -26,4 +26,15 @@ public class MommifierTest {
             mommifier.convertString(stringOfNull);
         });
     }
+    @Test
+    void should_return_itself_when_given_strings_with_no_repeat_vowels() {
+        //given
+        String stringOfNoVowels="abcde";
+        //when
+        Mommifier mommifier=new Mommifier();
+        String result = mommifier.convertString(stringOfNoVowels);
+        //then
+        String expected ="abcde";
+        assertEquals(result, expected);
+    }
 }
