@@ -15,4 +15,15 @@ public class MommifierTest {
         String expected = "";
         assertEquals(result, expected);
     }
+    @Test
+    void should_throw_exception_when_given_null() {
+        //given
+        String stringOfNull=null;
+        //when
+        Mommifier mommifier=new Mommifier();
+        //then
+        assertThrows(RuntimeException.class,  ()-> {
+            mommifier.convertString(stringOfNull);
+        });
+    }
 }
